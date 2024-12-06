@@ -1,3 +1,32 @@
-/* 
-    General Styles
-*/
+body{
+    overflow-x: hidden;
+    background-color: var(--bs-dark);
+}
+
+.btn-learn:hover {
+    background-color: var(--bs-primary);
+    color: var(--bs-light) !important
+}
+
+.input-search::placeholder {
+    color: var(--bs-warning)
+}
+
+.btn-heart:hover {
+    background-color: var(--bs-warning);
+    color: var(--bs-dark) !important
+}
+
+.dropdown-toggle::after{
+    margin: auto;
+}
+
+.btn-favorites {
+    border-radius: 0.25rem 0.25rem 0 0;
+}
+
+.stroke {
+    color: black !important;
+    transform: scale(1.5);
+    -webkit-text-stroke: 2px var(--bs-warning);
+}

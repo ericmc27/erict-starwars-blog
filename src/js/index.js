@@ -1,16 +1,23 @@
 //import react into the bundle
 import React from 'react'
-import {createRoot} from 'react-dom/client'
+import { Provider } from 'react-redux';
+import StarWarsProvider from './store/context.js';
+import store from './store/store.js';
+import { createRoot } from 'react-dom/client'
 
-//include your index.scss file into the bundle
+
 import "../styles/index.css";
 
-//import your own components
-import Layout from './layout.js'
 
-//
+import App from './layout.js'
+
 const root = createRoot(document.querySelector("#app"))
 
-//render your react application
-root.render(<Layout/>)
+
+root.render(
+    <Provider store={store}>
+        <StarWarsProvider>      
+            <App />
+        </StarWarsProvider>
+    </Provider>)
 

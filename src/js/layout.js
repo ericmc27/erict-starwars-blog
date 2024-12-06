@@ -1,37 +1,35 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ScrollToTop from "./component/scrollToTop";
-
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { loadCharacters, loadPlanets, loadCharactersProperties, loadPlanetsProperties, loadVehicles, loadVehiclesProperties } from "./apis/starWarsApi";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import ScrollToTop from "./components/scrollToTop";
 import { Home } from "./views/home";
-import { Demo } from "./views/demo";
-import { Single } from "./views/single";
-import injectContext from "./store/appContext";
+import { Navbar } from "./components/navbar";
+import LearnMore from "./views/learnMore";
 
-import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
 
-//create your first component
-const Layout = () => {
-	//the basename is used when your project is published in a subdirectory and not in the root of the domain
-	// you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
-	const basename = process.env.BASENAME || "";
+const App = () => {
+	const dispatch = useDispatch()
+	useEffect(() => {
+		loadCharacters(dispatch)
+		loadCharactersProperties(dispatch)
+		loadPlanets(dispatch)
+		loadPlanetsProperties(dispatch)
+		loadVehicles(dispatch)
+		loadVehiclesProperties(dispatch)
+	}, [])
 
 	return (
-		<div>
-			<BrowserRouter basename={basename}>
-				<ScrollToTop>
-					<Navbar />
-					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route path="/demo" element={<Demo />} />
-						<Route path="/single/:theid" element={<Single />} />
-						<Route path="*" element={<h1>Not found!</h1>} />
-					</Routes>
-					<Footer />
-				</ScrollToTop>
-			</BrowserRouter>
-		</div>
-	);
-};
+			<Router>
+				<ScrollToTop/>
+				<Navbar />
+				<Routes>
+					<Route path="/" element={<Home />}></Route>
+					<Route path="/learn" element={<LearnMore />}></Route>
+					<Route path="*" element={<div>Not found</div>}></Route>
+				</Routes>
+			</Router>
+	)
+}
 
-export default injectContext(Layout);
+export default App
