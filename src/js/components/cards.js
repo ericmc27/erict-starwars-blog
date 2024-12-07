@@ -44,11 +44,11 @@ export const CardPlanets = (props) => {
 
 
 export const CardVehicles = (props) => {
-  const {index, name, manufacturer, passengers} = props
+  const {uid, name, manufacturer, passengers} = props
   
   return (
     <div className="card d-flex justify-content-between bg-dark border border-warning text-light mb-3" style={{ width: "300px", height: "400px" }}>
-      <img src={`${vehicles[index]}`} className="card-img-top" width={"285px"} height={"200px"} />
+      <img src={`https://starwars-visualguide.com/assets/img/vehicles/${uid}.jpg`} className="card-img-top" width={"285px"} height={"200px"} />
 
       <div className='mb-4'>
         <h5 className="card-title ms-3">{name}</h5> 

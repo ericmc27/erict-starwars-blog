@@ -1,6 +1,6 @@
 import {createSlice, configureStore} from '@reduxjs/toolkit'
 
-let index = 0
+
 
 const initialState = {
 	starWarsCharacters: [], starWarsPlanets: [], starWarsVehicles: [],

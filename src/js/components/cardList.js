@@ -35,7 +35,7 @@ const CardList = () => {
         {
           starWarsVehicles.map((vehicle, index) => {
             return <div key={index} className='col' style={{ paddingLeft: index === 0 && "0px" }}>
-              <CardVehicles {...vehicle} {...properties.vehicles[index]} index={index} />
+              <CardVehicles {...vehicle} {...properties.vehicles[index]} />
             </div>
           })
         }

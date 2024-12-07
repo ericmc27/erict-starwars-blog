@@ -8,7 +8,7 @@ const LearnMore = () => {
   let currentName = props.url.split('/')
   currentName = currentName[currentName.length-2]
  
-
+  console.log(props)
   return (
     <>
       {props &&
